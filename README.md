@@ -2,7 +2,6 @@
 
 <div align="center">
 
-<!-- TODO: 저자/소속을 채워주세요 -->
 **Seung Won Kim**<sup></sup>, **Dae Hyeon Kim**<sup></sup>, **Young-Seok Choi**<sup>*</sup>
 
 <sup></sup>Department of Electronics and Communications Engineering, Kwangwoon University, Seoul, South Korea
