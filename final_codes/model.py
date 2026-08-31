@@ -1,24 +1,3 @@
-"""
-model.py  (= 기존 model_proposed_final.py)
-──────────────────────────────────────────
-현재까지의 **최종 제안 모델** (self-contained). = results_final 의 proposed(0~2hop + 통합 가중치행렬 + SimAM).
-
-구성:
-  - Dual-branch: A=(-1,0,1), B=(-4,-2,0,2,4)   (lag set, 최적 조합)
-  - **0,1,2 hop** (disentangled exact-hop k-adjacency, 0-hop 유지)
-  - **통합(shared-lag) 가중치행렬**: hop당 residual 1개를 모든 lag 가 공유 (R_k ∈ ℝ^{N×N})
-  - scale(lag δ) add + hop(k) add  (softmax 가중 없음)
-  - **SimAM(Σ_k agg_k)**: hop 합 결과에 SimAM 1회 (post-sum, 무파라미터)
-  - 경량 MS-TCL (2-branch depthwise + SimAM) → DIP + TempAttn pooling → Linear
-
-  full-protocol test_acc = 0.8443 ± 0.0438, params 430,853 (lag B=(-4,-2,0,2,4) 기준).
-
-핵심 식 (branch당):
-  S_k = Â_k + M^{(k)} ⊙ R_k                       (k∈{0,1,2}, R_k: 통합 residual)
-  Y_t = σ_bn( SimAM( Σ_{k=0}^{2} S_k · ( Σ_{δ∈Δ} X_{t+δ} ) ) )
-
-`ProposedFinal(num_nodes=64, num_classes=5)` + 학습 전 `model.init_adjacency(X_train)` 로 사용.
-"""
 import numpy as np
 import scipy.signal as signal
 import torch
