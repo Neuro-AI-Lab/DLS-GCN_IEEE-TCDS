@@ -1,10 +1,4 @@
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
-# CPU 스레드 제한 (taskset -c 0-11 로 12코어 핀 → 스레드도 12로 맞춤).
-# 반드시 numpy/torch import 이전에 설정해야 MKL/OMP 가 반영함.
-os.environ["OMP_NUM_THREADS"] = "12"
-os.environ["MKL_NUM_THREADS"] = "12"
-
 import numpy as np
 import torch
 
