@@ -1,6 +1,5 @@
 # code_summery — 제안 모델(ProposedFinal) 학습 실행 최소 코드
 
-`model_proposed_final.py` 기준으로 학습/평가 실행에 필요한 파일만 추린 self-contained 세트.
 
 실행 흐름: `main.py` → `train_eval.py` → (`preprocessing.py`, `model.py`)
 
